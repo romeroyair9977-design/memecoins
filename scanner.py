@@ -70,18 +70,24 @@ PAPER_SLIPPAGE_SALIDA_PCT = 1.0    # deslizamiento simulado al vender
 PAPER_TIPOS = ("nuevo", "despertar")  # qué tipos de candidato se operan
 PAPER_MAX_ABIERTAS = 5
 PAPER_ESTRATEGIAS = {
-    # tp: take profit fijo (None = sin tope)
-    # sl: stop loss inicial (% de caída desde la entrada)
-    # trail_activar: ganancia % a partir de la cual el stop empieza a seguir al precio máximo
-    # trail_dist: distancia % del stop al precio máximo
-    # parcial_en / parcial_frac: al llegar a ese % de ganancia vende esa fracción de la posición
-    "A_fija":       {"tp": 60,   "sl": 35, "trail_activar": None, "trail_dist": None,
-                     "parcial_en": None, "parcial_frac": 0.0, "max_horas": 4},
-    "B_escalonado": {"tp": None, "sl": 35, "trail_activar": 30, "trail_dist": 25,
-                     "parcial_en": None, "parcial_frac": 0.0, "max_horas": 24},
-    "C_parcial":    {"tp": None, "sl": 35, "trail_activar": 30, "trail_dist": 25,
-                     "parcial_en": 100, "parcial_frac": 0.5, "max_horas": 24},
+    # Solo queda la regla A: en la prueba, B (escalonado) y C (parcial) salieron claramente peores
+    # en memecoins. Puedes volver a añadir otras copiando el formato.
+    # tp: take profit | sl: stop loss | trail_*: stop escalonado | parcial_*: venta parcial
+    "A_fija": {"tp": 60, "sl": 35, "trail_activar": None, "trail_dist": None,
+               "parcial_en": None, "parcial_frac": 0.0, "max_horas": 4},
 }
+
+# --- VIGILANCIA DE POSICIONES ABIERTAS ---
+# Antes el precio se miraba solo cada 30 min y los stops salían muy tarde (stop de -35% cerraba en -63%).
+# Ahora, tras cada escaneo, el bot se queda vigilando las posiciones abiertas cada VIGILAR_CADA_SEG segundos
+# durante hasta VIGILAR_MIN minutos (termina antes si no quedan posiciones abiertas).
+VIGILAR_MIN = 25
+VIGILAR_CADA_SEG = 45
+
+# --- FILTROS NUEVOS (hipótesis a probar, NO garantías) ---
+MAX_CAMBIO_H1_PCT = 150    # no entrar si ya subió más de X% en la última hora (perseguir un pico)
+MIN_CAMBIO_H1_PCT = -20    # no entrar si ya cae más de X% en la última hora
+BLOQUEAR_SIMBOLOS_REPETIDOS = True  # evita copias: mismo símbolo con otro contrato que uno ya visto
 # ================================================================================
 
 DS = "https://api.dexscreener.com"
@@ -107,6 +113,7 @@ SEG_COLS = [
 PAPER_COLS = [
     "estrategia", "fecha_entrada", "fecha_salida", "mint", "simbolo", "tipo", "precio_entrada",
     "precio_salida", "monto_usd", "resultado_usd", "resultado_pct", "motivo_salida", "horas",
+    "liquidez_usd", "vol_h1", "aceleracion_vol", "cambio_h1_pct", "edad_h", "holders", "top10_pct",
 ]
 BAL_COLS = ["fecha_utc", "estrategia", "caja", "valor_abiertas", "total", "abiertas", "cerradas", "ganadas"]
 
@@ -239,6 +246,10 @@ def evaluar_mercado(m):
         motivos.append(f"pocas operaciones en 1h ({n})")
     elif m["compras"] / n < MIN_RATIO_COMPRAS:
         motivos.append("muchas más ventas que compras en 1h")
+    if m["cambio_h1"] > MAX_CAMBIO_H1_PCT:
+        motivos.append(f"ya subió {m['cambio_h1']:.0f}% en 1h (perseguiría el pico)")
+    if m["cambio_h1"] < MIN_CAMBIO_H1_PCT:
+        motivos.append(f"cae {m['cambio_h1']:.0f}% en 1h")
     if m["fdv"] and m["fdv"] > MAX_FDV_USD:
         motivos.append(f"FDV {m['fdv']:,.0f} > {MAX_FDV_USD:,}")
     if m["fdv"] and m["liq"] / m["fdv"] < MIN_LIQ_SOBRE_FDV:
@@ -361,7 +372,7 @@ def paper_guardar(est):
         json.dump(est, f, indent=2)
 
 
-def paper_trading(nuevos):
+def paper_trading(nuevos, registrar_balance=True):
     """Simula varias reglas de salida en cuentas separadas, sobre los mismos candidatos."""
     if not PAPER_ACTIVO:
         return
@@ -431,6 +442,8 @@ def paper_trading(nuevos):
                 "monto_usd": pos["monto"], "resultado_usd": round(resultado, 4),
                 "resultado_pct": round(resultado / pos["monto"] * 100, 1),
                 "motivo_salida": motivo, "horas": round(horas, 2),
+                **{k_: pos.get("feat", {}).get(k_, "") for k_ in
+                   ("liquidez_usd", "vol_h1", "aceleracion_vol", "cambio_h1_pct", "edad_h", "holders", "top10_pct")},
             })
             print(f"  PAPER[{nombre}] cierre {pos['simbolo']}: {motivo} {resultado:+.2f} USD")
         cta["abiertas"] = restantes
@@ -452,6 +465,8 @@ def paper_trading(nuevos):
                 "fecha_entrada": t.isoformat(timespec="minutes"),
                 "precio_entrada": entrada, "monto": PAPER_MONTO,
                 "tokens": PAPER_MONTO / entrada, "max_precio": entrada,
+                "feat": {k_: c.get(k_, "") for k_ in
+                         ("liquidez_usd", "vol_h1", "aceleracion_vol", "cambio_h1_pct", "edad_h", "holders", "top10_pct")},
             })
             ya.add(c["mint"])
             print(f"  PAPER[{nombre}] compra {c['simbolo']} a {entrada:.8g}")
@@ -465,12 +480,29 @@ def paper_trading(nuevos):
             "total": round(total, 4), "abiertas": len(cta["abiertas"]),
             "cerradas": cta["cerradas"], "ganadas": cta["ganadas"],
         })
-        print(f"PAPER[{nombre}] total {total:.2f} USD | caja {cta['caja']:.2f} | "
-              f"abiertas {len(cta['abiertas'])} | cerradas {cta['cerradas']} | ganadas {cta['ganadas']}")
+        if registrar_balance:
+            print(f"PAPER[{nombre}] total {total:.2f} USD | caja {cta['caja']:.2f} | "
+                  f"abiertas {len(cta['abiertas'])} | cerradas {cta['cerradas']} | ganadas {cta['ganadas']}")
 
     añadir_csv(PAPER_TRADES, PAPER_COLS, filas_cerradas)
-    añadir_csv(PAPER_BALANCE, BAL_COLS, filas_bal)
+    if registrar_balance:
+        añadir_csv(PAPER_BALANCE, BAL_COLS, filas_bal)
     paper_guardar(est)
+
+
+def paper_vigilar():
+    """Tras el escaneo, vigila las posiciones abiertas cada pocos segundos (stops más realistas)."""
+    if not PAPER_ACTIVO:
+        return
+    ciclos = int(VIGILAR_MIN * 60 // VIGILAR_CADA_SEG)
+    for n in range(ciclos):
+        est = paper_cargar()
+        if not any(c["abiertas"] for c in est["estrategias"].values()):
+            print("Vigilancia: no quedan posiciones abiertas, termino.")
+            break
+        time.sleep(VIGILAR_CADA_SEG)
+        paper_trading([], registrar_balance=False)
+    paper_trading([], registrar_balance=True)
 
 
 # ----------------------------- FLUJOS -----------------------------
@@ -493,8 +525,31 @@ def escanear():
     print(f"Tokens por revisar: {len(mints)}")
     pares = pares_de(mints)
 
+    # símbolos ya vistos en las últimas horas (otro contrato con el mismo símbolo suele ser una copia)
+    simbolos_vistos = set()
+    if BLOQUEAR_SIMBOLOS_REPETIDOS:
+        limite_ = ahora().timestamp() - HORAS_SIN_REPETIR * 3600
+        for r_ in leer_csv(CAND):
+            try:
+                t_ = datetime.strptime(r_["fecha_utc"], "%Y-%m-%d %H:%M").replace(tzinfo=timezone.utc)
+            except (ValueError, KeyError):
+                continue
+            if t_.timestamp() >= limite_:
+                simbolos_vistos.add(r_.get("simbolo", "").strip().lower())
+    # dentro de este lote, si varios tokens comparten símbolo, solo se considera el de más liquidez
+    mejor_por_simbolo = {}
+    for mint_, p_ in pares.items():
+        s_ = (p_["baseToken"].get("symbol") or "").strip().lower()
+        liq_ = num((p_.get("liquidity") or {}).get("usd"))
+        if s_ not in mejor_por_simbolo or liq_ > mejor_por_simbolo[s_][1]:
+            mejor_por_simbolo[s_] = (mint_, liq_)
+
     pasan = []
     for mint, p in pares.items():
+        sim_l = (p["baseToken"].get("symbol") or "").strip().lower()
+        if BLOQUEAR_SIMBOLOS_REPETIDOS and sim_l:
+            if sim_l in simbolos_vistos or mejor_por_simbolo[sim_l][0] != mint:
+                continue
         m = metricas(p)
         motivos, tipo = evaluar_mercado(m)
         if motivos:
@@ -576,6 +631,7 @@ if __name__ == "__main__":
         nuevos = escanear()
         seguimiento()
         paper_trading(nuevos)
+        paper_vigilar()
     elif cmd == "check" and len(sys.argv) > 2:
         revisar_uno(sys.argv[2])
     else:
