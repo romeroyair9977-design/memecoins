@@ -1,18 +1,8 @@
 {
   "estrategias": {
     "A_fija": {
-      "caja": 0.6472222612557661,
+      "caja": 0.12489270969463018,
       "abiertas": [
-        {
-          "mint": "HKZDfZnkHZxd9agRDNPyDv4iT6LmAurJnpRtj9wpump",
-          "simbolo": "MISTAKE",
-          "tipo": "despertar",
-          "fecha_entrada": "2026-10-18T14:50+00:00",
-          "precio_entrada": 0.00530351,
-          "monto": 2.0,
-          "tokens": 377.10874496324135,
-          "max_precio": 0.005343
-        },
         {
           "mint": "DtcicPCKTKeAh7TDEzTym3hXeoHAoMiBdYJhMYxZpump",
           "simbolo": "CBUCKS",
@@ -31,44 +21,32 @@
           "precio_entrada": 0.00110696,
           "monto": 2.0,
           "tokens": 1806.7500180675004,
-          "max_precio": 0.0013
+          "max_precio": 0.001395
+        },
+        {
+          "mint": "3QMFFJfHBPscB3pCaP8tweu6TUfNEK3G1QEG2zFxpump",
+          "simbolo": "CRASH",
+          "tipo": "nuevo",
+          "fecha_entrada": "2026-10-18T18:54+00:00",
+          "precio_entrada": 8.167870000000001e-05,
+          "monto": 2.0,
+          "tokens": 24486.18795353011,
+          "max_precio": 8.167870000000001e-05
         }
       ],
-      "cerradas": 20,
+      "cerradas": 21,
       "ganadas": 6
     },
     "B_escalonado": {
-      "caja": 0.6188244220523123,
-      "abiertas": [
-        {
-          "mint": "A42xDiBpBYoT1mQ839Achw3MMUqd1DqrEtWPLodcpump",
-          "simbolo": "DCITY",
-          "tipo": "nuevo",
-          "fecha_entrada": "2026-10-18T18:12+00:00",
-          "precio_entrada": 0.000156348,
-          "monto": 2.0,
-          "tokens": 12791.976872105815,
-          "max_precio": 0.000156348
-        }
-      ],
-      "cerradas": 10,
+      "caja": 0.6454189419694203,
+      "abiertas": [],
+      "cerradas": 11,
       "ganadas": 2
     },
     "C_parcial": {
-      "caja": 0.5694045310761391,
-      "abiertas": [
-        {
-          "mint": "A42xDiBpBYoT1mQ839Achw3MMUqd1DqrEtWPLodcpump",
-          "simbolo": "DCITY",
-          "tipo": "nuevo",
-          "fecha_entrada": "2026-10-18T18:12+00:00",
-          "precio_entrada": 0.000156348,
-          "monto": 2.0,
-          "tokens": 12791.976872105815,
-          "max_precio": 0.000156348
-        }
-      ],
-      "cerradas": 11,
+      "caja": 0.5959990509932471,
+      "abiertas": [],
+      "cerradas": 12,
       "ganadas": 2
     }
   }
