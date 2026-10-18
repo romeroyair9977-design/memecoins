@@ -1,3 +1,4 @@
 estrategia,fecha_entrada,fecha_salida,mint,simbolo,tipo,precio_entrada,precio_salida,monto_usd,resultado_usd,resultado_pct,motivo_salida,horas,liquidez_usd,vol_h1,aceleracion_vol,cambio_h1_pct,edad_h,holders,top10_pct
 A_fija,2026-10-18T20:50+00:00,2026-10-18T21:42+00:00,8j2G4CUi8vswXykzyp4PYNGKF9wuLBmYoT6Y4Fcnpump,TRENCHBOT,nuevo,9.71317e-05,6.223140000000001e-05,2.0,-0.7186,-35.9,stop_loss,0.87,,,,,,,
 A_fija,2026-10-18T20:50+00:00,2026-10-18T22:02+00:00,68R6PSWipAwGVmHpfvsCSfQG6chrqe7q4tA3uDoevJ2S,zkat,nuevo,0.000149783,9.33966e-05,2.0,-0.7529,-37.6,stop_loss,1.21,,,,,,,
+A_fija,2026-10-18T22:12+00:00,2026-10-18T22:29+00:00,ArpPsesHXKbGeJsHdquM6acT3uNs7BChyetJjiNYpump,godspeed,nuevo,0.00020604,0.00033858,2.0,1.2865,64.3,take_profit,0.29,40707,1821223,150.7,40.89,1.2,7698,31.2
