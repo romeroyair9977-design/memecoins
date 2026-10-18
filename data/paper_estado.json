@@ -1,7 +1,7 @@
 {
   "estrategias": {
     "A_fija": {
-      "caja": 6.0,
+      "caja": 4.0,
       "abiertas": [
         {
           "mint": "F6UgBxr8pRNCT7DNeA2teumzBebihmSZSCmmLN9bpump",
@@ -22,13 +22,23 @@
           "monto": 2.0,
           "tokens": 7253.472600007253,
           "max_precio": 0.00027573
+        },
+        {
+          "mint": "48hnR1CWtafBumJsJod6Q8yduwDuYyumCJzuBVzvpump",
+          "simbolo": "Dip",
+          "tipo": "nuevo",
+          "fecha_entrada": "2026-10-18T05:52+00:00",
+          "precio_entrada": 0.000258055,
+          "monto": 2.0,
+          "tokens": 7750.285791788573,
+          "max_precio": 0.000258055
         }
       ],
       "cerradas": 0,
       "ganadas": 0
     },
     "B_escalonado": {
-      "caja": 6.0,
+      "caja": 4.0,
       "abiertas": [
         {
           "mint": "F6UgBxr8pRNCT7DNeA2teumzBebihmSZSCmmLN9bpump",
@@ -49,13 +59,23 @@
           "monto": 2.0,
           "tokens": 7253.472600007253,
           "max_precio": 0.00027573
+        },
+        {
+          "mint": "48hnR1CWtafBumJsJod6Q8yduwDuYyumCJzuBVzvpump",
+          "simbolo": "Dip",
+          "tipo": "nuevo",
+          "fecha_entrada": "2026-10-18T05:52+00:00",
+          "precio_entrada": 0.000258055,
+          "monto": 2.0,
+          "tokens": 7750.285791788573,
+          "max_precio": 0.000258055
         }
       ],
       "cerradas": 0,
       "ganadas": 0
     },
     "C_parcial": {
-      "caja": 6.0,
+      "caja": 4.0,
       "abiertas": [
         {
           "mint": "F6UgBxr8pRNCT7DNeA2teumzBebihmSZSCmmLN9bpump",
@@ -76,6 +96,16 @@
           "monto": 2.0,
           "tokens": 7253.472600007253,
           "max_precio": 0.00027573
+        },
+        {
+          "mint": "48hnR1CWtafBumJsJod6Q8yduwDuYyumCJzuBVzvpump",
+          "simbolo": "Dip",
+          "tipo": "nuevo",
+          "fecha_entrada": "2026-10-18T05:52+00:00",
+          "precio_entrada": 0.000258055,
+          "monto": 2.0,
+          "tokens": 7750.285791788573,
+          "max_precio": 0.000258055
         }
       ],
       "cerradas": 0,
