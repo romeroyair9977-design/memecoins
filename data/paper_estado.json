@@ -31,14 +31,14 @@
           "precio_entrada": 0.00110696,
           "monto": 2.0,
           "tokens": 1806.7500180675004,
-          "max_precio": 0.00110696
+          "max_precio": 0.0013
         }
       ],
       "cerradas": 20,
       "ganadas": 6
     },
     "B_escalonado": {
-      "caja": 0.3407772047893607,
+      "caja": 1.508176892126515,
       "abiertas": [
         {
           "mint": "48hnR1CWtafBumJsJod6Q8yduwDuYyumCJzuBVzvpump",
@@ -51,47 +51,45 @@
           "max_precio": 0.0003443
         },
         {
-          "mint": "DfBJCoLnaF75GaKPWB4c3TFyMHcXmAShiuWm3dHNpump",
-          "simbolo": "koinu",
+          "mint": "5zBT5VM8x3Sy1H7GFYBfoD97CUioU5HZjshJkD9Wpump",
+          "simbolo": "Doomsday",
           "tipo": "nuevo",
-          "fecha_entrada": "2026-10-18T13:54+00:00",
-          "precio_entrada": 5.27725e-05,
+          "fecha_entrada": "2026-10-18T17:15+00:00",
+          "precio_entrada": 0.000201192,
           "monto": 2.0,
-          "tokens": 37898.52669477474,
-          "max_precio": 0.000144
-        }
-      ],
-      "cerradas": 6,
-      "ganadas": 1
-    },
-    "C_parcial": {
-      "caja": 1.875057157481764,
-      "abiertas": [
-        {
-          "mint": "48hnR1CWtafBumJsJod6Q8yduwDuYyumCJzuBVzvpump",
-          "simbolo": "Dip",
-          "tipo": "nuevo",
-          "fecha_entrada": "2026-10-18T05:52+00:00",
-          "precio_entrada": 0.000258055,
-          "monto": 2.0,
-          "tokens": 7750.285791788573,
-          "max_precio": 0.0003443
-        },
-        {
-          "mint": "DfBJCoLnaF75GaKPWB4c3TFyMHcXmAShiuWm3dHNpump",
-          "simbolo": "koinu",
-          "tipo": "nuevo",
-          "fecha_entrada": "2026-10-18T13:54+00:00",
-          "precio_entrada": 5.27725e-05,
-          "monto": 2.0,
-          "tokens": 18949.26334738737,
-          "max_precio": 0.000144,
-          "recuperado": 2.5682126107347574,
-          "parcial": true
+          "tokens": 9940.753111455724,
+          "max_precio": 0.000201192
         }
       ],
       "cerradas": 7,
-      "ganadas": 1
+      "ganadas": 2
+    },
+    "C_parcial": {
+      "caja": 1.4587570011503415,
+      "abiertas": [
+        {
+          "mint": "48hnR1CWtafBumJsJod6Q8yduwDuYyumCJzuBVzvpump",
+          "simbolo": "Dip",
+          "tipo": "nuevo",
+          "fecha_entrada": "2026-10-18T05:52+00:00",
+          "precio_entrada": 0.000258055,
+          "monto": 2.0,
+          "tokens": 7750.285791788573,
+          "max_precio": 0.0003443
+        },
+        {
+          "mint": "5zBT5VM8x3Sy1H7GFYBfoD97CUioU5HZjshJkD9Wpump",
+          "simbolo": "Doomsday",
+          "tipo": "nuevo",
+          "fecha_entrada": "2026-10-18T17:15+00:00",
+          "precio_entrada": 0.000201192,
+          "monto": 2.0,
+          "tokens": 9940.753111455724,
+          "max_precio": 0.000201192
+        }
+      ],
+      "cerradas": 8,
+      "ganadas": 2
     }
   }
 }
