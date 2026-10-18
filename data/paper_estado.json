@@ -1,20 +1,30 @@
 {
   "estrategias": {
     "A_fija": {
-      "caja": 4.022355432132099,
+      "caja": 1.6155796292276943,
       "abiertas": [
         {
-          "mint": "DtcicPCKTKeAh7TDEzTym3hXeoHAoMiBdYJhMYxZpump",
-          "simbolo": "CBUCKS",
-          "tipo": "despertar",
-          "fecha_entrada": "2026-10-18T15:50+00:00",
-          "precio_entrada": 0.00116857,
+          "mint": "CNfzT1Ha63GTeJ99N9ii73HzCwyLUTXj3mbiwCyvtZD3",
+          "simbolo": "BNICE",
+          "tipo": "nuevo",
+          "fecha_entrada": "2026-10-18T20:10+00:00",
+          "precio_entrada": 4.30765e-05,
           "monto": 2.0,
-          "tokens": 1711.4935348331721,
-          "max_precio": 0.001252
+          "tokens": 46429.027427947956,
+          "max_precio": 4.30765e-05
+        },
+        {
+          "mint": "2Cc5B2owbbR3oJnXmc1oYMfVEj1k5dRGfeQS1y1Lpump",
+          "simbolo": "PIERRE",
+          "tipo": "nuevo",
+          "fecha_entrada": "2026-10-18T20:10+00:00",
+          "precio_entrada": 0.000148066,
+          "monto": 2.0,
+          "tokens": 13507.489903151298,
+          "max_precio": 0.000148066
         }
       ],
-      "cerradas": 23,
+      "cerradas": 24,
       "ganadas": 7
     },
     "B_escalonado": {
