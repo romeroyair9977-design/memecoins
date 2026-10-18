@@ -1,18 +1,8 @@
 {
   "estrategias": {
     "A_fija": {
-      "caja": 0.6591204617215602,
+      "caja": 4.60863629242551,
       "abiertas": [
-        {
-          "mint": "AcV6CcpMGFrA1dhRFiCKNiVNje8QE6ZXR9ep9jh7pump",
-          "simbolo": "TSI",
-          "tipo": "nuevo",
-          "fecha_entrada": "2026-10-18T05:17+00:00",
-          "precio_entrada": 0.00027573,
-          "monto": 2.0,
-          "tokens": 7253.472600007253,
-          "max_precio": 0.000426
-        },
         {
           "mint": "48hnR1CWtafBumJsJod6Q8yduwDuYyumCJzuBVzvpump",
           "simbolo": "Dip",
@@ -44,8 +34,8 @@
           "max_precio": 0.000257
         }
       ],
-      "cerradas": 3,
-      "ganadas": 1
+      "cerradas": 4,
+      "ganadas": 2
     },
     "B_escalonado": {
       "caja": 0.018354211183463587,
@@ -58,7 +48,7 @@
           "precio_entrada": 0.00027573,
           "monto": 2.0,
           "tokens": 7253.472600007253,
-          "max_precio": 0.000426
+          "max_precio": 0.00055
         },
         {
           "mint": "48hnR1CWtafBumJsJod6Q8yduwDuYyumCJzuBVzvpump",
@@ -95,7 +85,7 @@
           "precio_entrada": 0.00027573,
           "monto": 2.0,
           "tokens": 7253.472600007253,
-          "max_precio": 0.000426
+          "max_precio": 0.00055
         },
         {
           "mint": "48hnR1CWtafBumJsJod6Q8yduwDuYyumCJzuBVzvpump",
