@@ -1,7 +1,7 @@
 {
   "estrategias": {
     "A_fija": {
-      "caja": 7.641793692852895,
+      "caja": 3.641793692852895,
       "abiertas": [
         {
           "mint": "HKZDfZnkHZxd9agRDNPyDv4iT6LmAurJnpRtj9wpump",
@@ -11,7 +11,27 @@
           "precio_entrada": 0.00530351,
           "monto": 2.0,
           "tokens": 377.10874496324135,
-          "max_precio": 0.00530351
+          "max_precio": 0.005343
+        },
+        {
+          "mint": "4hCVKZKpuRdFtnRXC9fqEdrrQwEYuw4Rbxipwbwdpump",
+          "simbolo": "trenchcat",
+          "tipo": "nuevo",
+          "fecha_entrada": "2026-10-18T15:50+00:00",
+          "precio_entrada": 4.2036199999999996e-05,
+          "monto": 2.0,
+          "tokens": 47578.039879913034,
+          "max_precio": 4.2036199999999996e-05
+        },
+        {
+          "mint": "DtcicPCKTKeAh7TDEzTym3hXeoHAoMiBdYJhMYxZpump",
+          "simbolo": "CBUCKS",
+          "tipo": "despertar",
+          "fecha_entrada": "2026-10-18T15:50+00:00",
+          "precio_entrada": 0.00116857,
+          "monto": 2.0,
+          "tokens": 1711.4935348331721,
+          "max_precio": 0.00116857
         }
       ],
       "cerradas": 18,
@@ -28,7 +48,7 @@
           "precio_entrada": 0.000258055,
           "monto": 2.0,
           "tokens": 7750.285791788573,
-          "max_precio": 0.0002666
+          "max_precio": 0.0003443
         },
         {
           "mint": "DfBJCoLnaF75GaKPWB4c3TFyMHcXmAShiuWm3dHNpump",
@@ -38,14 +58,14 @@
           "precio_entrada": 5.27725e-05,
           "monto": 2.0,
           "tokens": 37898.52669477474,
-          "max_precio": 8.646e-05
+          "max_precio": 0.0001369
         }
       ],
       "cerradas": 6,
       "ganadas": 1
     },
     "C_parcial": {
-      "caja": 0.3407772047893607,
+      "caja": 0.9089898155241181,
       "abiertas": [
         {
           "mint": "48hnR1CWtafBumJsJod6Q8yduwDuYyumCJzuBVzvpump",
@@ -55,7 +75,7 @@
           "precio_entrada": 0.000258055,
           "monto": 2.0,
           "tokens": 7750.285791788573,
-          "max_precio": 0.0002666
+          "max_precio": 0.0003443
         },
         {
           "mint": "DfBJCoLnaF75GaKPWB4c3TFyMHcXmAShiuWm3dHNpump",
@@ -64,8 +84,20 @@
           "fecha_entrada": "2026-10-18T13:54+00:00",
           "precio_entrada": 5.27725e-05,
           "monto": 2.0,
-          "tokens": 37898.52669477474,
-          "max_precio": 8.646e-05
+          "tokens": 18949.26334738737,
+          "max_precio": 0.0001369,
+          "recuperado": 2.5682126107347574,
+          "parcial": true
+        },
+        {
+          "mint": "4hCVKZKpuRdFtnRXC9fqEdrrQwEYuw4Rbxipwbwdpump",
+          "simbolo": "trenchcat",
+          "tipo": "nuevo",
+          "fecha_entrada": "2026-10-18T15:50+00:00",
+          "precio_entrada": 4.2036199999999996e-05,
+          "monto": 2.0,
+          "tokens": 47578.039879913034,
+          "max_precio": 4.2036199999999996e-05
         }
       ],
       "cerradas": 6,
