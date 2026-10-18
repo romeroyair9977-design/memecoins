@@ -1,38 +1,8 @@
 {
   "estrategias": {
     "A_fija": {
-      "caja": 3.800141857050843,
+      "caja": 8.341364200025684,
       "abiertas": [
-        {
-          "mint": "FhTRVAkQeiaLRJHYc13DBNhgw9N8ZPacvonaKfXxpump",
-          "simbolo": "MOMO",
-          "tipo": "nuevo",
-          "fecha_entrada": "2026-10-18T07:04+00:00",
-          "precio_entrada": 0.000136451,
-          "monto": 2.0,
-          "tokens": 14657.276238356626,
-          "max_precio": 0.000136451
-        },
-        {
-          "mint": "9kXG537MZvtTBUieRvrye9KG93FbA25QAk7zf5oYpump",
-          "simbolo": "blocus",
-          "tipo": "nuevo",
-          "fecha_entrada": "2026-10-18T07:04+00:00",
-          "precio_entrada": 0.000230886,
-          "monto": 2.0,
-          "tokens": 8662.283551189765,
-          "max_precio": 0.000257
-        },
-        {
-          "mint": "7rwLENa5Mkx1PRbLzSARQ3Gd9X3AzdeH4oR97RYnpump",
-          "simbolo": "\ud83e\udd17",
-          "tipo": "nuevo",
-          "fecha_entrada": "2026-10-18T10:14+00:00",
-          "precio_entrada": 0.00011009000000000001,
-          "monto": 2.0,
-          "tokens": 18166.954310109908,
-          "max_precio": 0.00011009000000000001
-        },
         {
           "mint": "BdXfLfcbDE8YvpbvvmmGTduqcDesaQVUm5xLxgUc2S5t",
           "simbolo": "texcat",
@@ -41,10 +11,10 @@
           "precio_entrada": 0.000267751,
           "monto": 2.0,
           "tokens": 7469.626630712864,
-          "max_precio": 0.0002685
+          "max_precio": 0.0003037
         }
       ],
-      "cerradas": 7,
+      "cerradas": 10,
       "ganadas": 3
     },
     "B_escalonado": {
