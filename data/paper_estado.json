@@ -1,7 +1,7 @@
 {
   "estrategias": {
     "A_fija": {
-      "caja": 1.641793692852895,
+      "caja": 0.6472222612557661,
       "abiertas": [
         {
           "mint": "HKZDfZnkHZxd9agRDNPyDv4iT6LmAurJnpRtj9wpump",
@@ -14,16 +14,6 @@
           "max_precio": 0.005343
         },
         {
-          "mint": "4hCVKZKpuRdFtnRXC9fqEdrrQwEYuw4Rbxipwbwdpump",
-          "simbolo": "trenchcat",
-          "tipo": "nuevo",
-          "fecha_entrada": "2026-10-18T15:50+00:00",
-          "precio_entrada": 4.2036199999999996e-05,
-          "monto": 2.0,
-          "tokens": 47578.039879913034,
-          "max_precio": 4.816e-05
-        },
-        {
           "mint": "DtcicPCKTKeAh7TDEzTym3hXeoHAoMiBdYJhMYxZpump",
           "simbolo": "CBUCKS",
           "tipo": "despertar",
@@ -31,20 +21,20 @@
           "precio_entrada": 0.00116857,
           "monto": 2.0,
           "tokens": 1711.4935348331721,
-          "max_precio": 0.00116857
+          "max_precio": 0.001252
         },
         {
-          "mint": "CrsJs3BBBo7qdKtknWw5rP34gGthTCw893GkPMjBpump",
-          "simbolo": "Pep\u00e9",
+          "mint": "6yMZv1NgnQWBeocyfCNKmdqGr3Enu3Lrdpz3TJRvpump",
+          "simbolo": "CATONICE",
           "tipo": "nuevo",
-          "fecha_entrada": "2026-10-18T16:15+00:00",
-          "precio_entrada": 0.00010332300000000001,
+          "fecha_entrada": "2026-10-18T16:52+00:00",
+          "precio_entrada": 0.00110696,
           "monto": 2.0,
-          "tokens": 19356.77438711613,
-          "max_precio": 0.00010332300000000001
+          "tokens": 1806.7500180675004,
+          "max_precio": 0.00110696
         }
       ],
-      "cerradas": 18,
+      "cerradas": 20,
       "ganadas": 6
     },
     "B_escalonado": {
@@ -68,14 +58,14 @@
           "precio_entrada": 5.27725e-05,
           "monto": 2.0,
           "tokens": 37898.52669477474,
-          "max_precio": 0.0001369
+          "max_precio": 0.000144
         }
       ],
       "cerradas": 6,
       "ganadas": 1
     },
     "C_parcial": {
-      "caja": 0.9089898155241181,
+      "caja": 1.875057157481764,
       "abiertas": [
         {
           "mint": "48hnR1CWtafBumJsJod6Q8yduwDuYyumCJzuBVzvpump",
@@ -95,22 +85,12 @@
           "precio_entrada": 5.27725e-05,
           "monto": 2.0,
           "tokens": 18949.26334738737,
-          "max_precio": 0.0001369,
+          "max_precio": 0.000144,
           "recuperado": 2.5682126107347574,
           "parcial": true
-        },
-        {
-          "mint": "4hCVKZKpuRdFtnRXC9fqEdrrQwEYuw4Rbxipwbwdpump",
-          "simbolo": "trenchcat",
-          "tipo": "nuevo",
-          "fecha_entrada": "2026-10-18T15:50+00:00",
-          "precio_entrada": 4.2036199999999996e-05,
-          "monto": 2.0,
-          "tokens": 47578.039879913034,
-          "max_precio": 4.816e-05
         }
       ],
-      "cerradas": 6,
+      "cerradas": 7,
       "ganadas": 1
     }
   }
