@@ -38,57 +38,37 @@
       "ganadas": 6
     },
     "B_escalonado": {
-      "caja": 1.508176892126515,
+      "caja": 1.472939234398278,
       "abiertas": [
         {
-          "mint": "48hnR1CWtafBumJsJod6Q8yduwDuYyumCJzuBVzvpump",
-          "simbolo": "Dip",
+          "mint": "Ez7eEs53hQiXgCGmcbhdX5i1jgg2gC3F6MoeosuVpump",
+          "simbolo": "LUKE",
           "tipo": "nuevo",
-          "fecha_entrada": "2026-10-18T05:52+00:00",
-          "precio_entrada": 0.000258055,
+          "fecha_entrada": "2026-10-18T17:47+00:00",
+          "precio_entrada": 0.000490557,
           "monto": 2.0,
-          "tokens": 7750.285791788573,
-          "max_precio": 0.0003443
-        },
-        {
-          "mint": "5zBT5VM8x3Sy1H7GFYBfoD97CUioU5HZjshJkD9Wpump",
-          "simbolo": "Doomsday",
-          "tipo": "nuevo",
-          "fecha_entrada": "2026-10-18T17:15+00:00",
-          "precio_entrada": 0.000201192,
-          "monto": 2.0,
-          "tokens": 9940.753111455724,
-          "max_precio": 0.000201192
+          "tokens": 4076.9981877743057,
+          "max_precio": 0.000490557
         }
       ],
-      "cerradas": 7,
+      "cerradas": 9,
       "ganadas": 2
     },
     "C_parcial": {
-      "caja": 1.4587570011503415,
+      "caja": 1.4235193434221047,
       "abiertas": [
         {
-          "mint": "48hnR1CWtafBumJsJod6Q8yduwDuYyumCJzuBVzvpump",
-          "simbolo": "Dip",
+          "mint": "Ez7eEs53hQiXgCGmcbhdX5i1jgg2gC3F6MoeosuVpump",
+          "simbolo": "LUKE",
           "tipo": "nuevo",
-          "fecha_entrada": "2026-10-18T05:52+00:00",
-          "precio_entrada": 0.000258055,
+          "fecha_entrada": "2026-10-18T17:47+00:00",
+          "precio_entrada": 0.000490557,
           "monto": 2.0,
-          "tokens": 7750.285791788573,
-          "max_precio": 0.0003443
-        },
-        {
-          "mint": "5zBT5VM8x3Sy1H7GFYBfoD97CUioU5HZjshJkD9Wpump",
-          "simbolo": "Doomsday",
-          "tipo": "nuevo",
-          "fecha_entrada": "2026-10-18T17:15+00:00",
-          "precio_entrada": 0.000201192,
-          "monto": 2.0,
-          "tokens": 9940.753111455724,
-          "max_precio": 0.000201192
+          "tokens": 4076.9981877743057,
+          "max_precio": 0.000490557
         }
       ],
-      "cerradas": 8,
+      "cerradas": 10,
       "ganadas": 2
     }
   }
