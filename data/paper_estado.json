@@ -1,30 +1,9 @@
 {
   "estrategias": {
     "A_fija": {
-      "caja": 1.4869887750715152,
-      "abiertas": [
-        {
-          "mint": "8j2G4CUi8vswXykzyp4PYNGKF9wuLBmYoT6Y4Fcnpump",
-          "simbolo": "TRENCHBOT",
-          "tipo": "nuevo",
-          "fecha_entrada": "2026-10-18T20:50+00:00",
-          "precio_entrada": 9.71317e-05,
-          "monto": 2.0,
-          "tokens": 20590.600185109495,
-          "max_precio": 9.71317e-05
-        },
-        {
-          "mint": "68R6PSWipAwGVmHpfvsCSfQG6chrqe7q4tA3uDoevJ2S",
-          "simbolo": "zkat",
-          "tipo": "nuevo",
-          "fecha_entrada": "2026-10-18T20:50+00:00",
-          "precio_entrada": 0.000149783,
-          "monto": 2.0,
-          "tokens": 13352.650167241942,
-          "max_precio": 0.000149783
-        }
-      ],
-      "cerradas": 26,
+      "caja": 4.015462778040967,
+      "abiertas": [],
+      "cerradas": 28,
       "ganadas": 8
     },
     "B_escalonado": {
