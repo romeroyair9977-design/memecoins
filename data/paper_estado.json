@@ -1,7 +1,7 @@
 {
   "estrategias": {
     "A_fija": {
-      "caja": 1.9681319077349855,
+      "caja": 0.6117041534057677,
       "abiertas": [
         {
           "mint": "BdXfLfcbDE8YvpbvvmmGTduqcDesaQVUm5xLxgUc2S5t",
@@ -21,20 +21,20 @@
           "precio_entrada": 0.00019674799999999998,
           "monto": 2.0,
           "tokens": 10165.287575985525,
-          "max_precio": 0.00019674799999999998
+          "max_precio": 0.0002743
         },
         {
-          "mint": "TTcxAsRtHK2AQoT311u2HxMGTctE7Y7U6WegVoEpump",
-          "simbolo": "Fini",
+          "mint": "58eo3pKwDZ2GKT2XvRumuns6RustWyvqtgfyubA3kYAJ",
+          "simbolo": "ZDOG",
           "tipo": "nuevo",
-          "fecha_entrada": "2026-10-18T12:59+00:00",
-          "precio_entrada": 6.33775e-05,
+          "fecha_entrada": "2026-10-18T13:27+00:00",
+          "precio_entrada": 9.00415e-05,
           "monto": 2.0,
-          "tokens": 31556.940554613233,
-          "max_precio": 6.33775e-05
+          "tokens": 22211.980031429954,
+          "max_precio": 9.00415e-05
         }
       ],
-      "cerradas": 12,
+      "cerradas": 13,
       "ganadas": 3
     },
     "B_escalonado": {
@@ -58,7 +58,7 @@
           "precio_entrada": 0.00019674799999999998,
           "monto": 2.0,
           "tokens": 10165.287575985525,
-          "max_precio": 0.00019674799999999998
+          "max_precio": 0.0002743
         }
       ],
       "cerradas": 5,
@@ -85,7 +85,7 @@
           "precio_entrada": 0.00019674799999999998,
           "monto": 2.0,
           "tokens": 10165.287575985525,
-          "max_precio": 0.00019674799999999998
+          "max_precio": 0.0002743
         }
       ],
       "cerradas": 5,
