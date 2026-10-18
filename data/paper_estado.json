@@ -1,7 +1,7 @@
 {
   "estrategias": {
     "A_fija": {
-      "caja": 2.8922618761189085,
+      "caja": 3.800141857050843,
       "abiertas": [
         {
           "mint": "FhTRVAkQeiaLRJHYc13DBNhgw9N8ZPacvonaKfXxpump",
@@ -34,16 +34,6 @@
           "max_precio": 0.00011009000000000001
         },
         {
-          "mint": "FiKJg5JTFC7A3AyUMAhhom8NKu5Yzc7j3jWj1MCQpump",
-          "simbolo": "PICCOLO",
-          "tipo": "nuevo",
-          "fecha_entrada": "2026-10-18T10:14+00:00",
-          "precio_entrada": 5.83174e-05,
-          "monto": 2.0,
-          "tokens": 34295.08174232733,
-          "max_precio": 5.83174e-05
-        },
-        {
           "mint": "BdXfLfcbDE8YvpbvvmmGTduqcDesaQVUm5xLxgUc2S5t",
           "simbolo": "texcat",
           "tipo": "despertar",
@@ -51,10 +41,10 @@
           "precio_entrada": 0.000267751,
           "monto": 2.0,
           "tokens": 7469.626630712864,
-          "max_precio": 0.000267751
+          "max_precio": 0.0002685
         }
       ],
-      "cerradas": 6,
+      "cerradas": 7,
       "ganadas": 3
     },
     "B_escalonado": {
