@@ -1,18 +1,8 @@
 {
   "estrategias": {
     "A_fija": {
-      "caja": 4.0,
+      "caja": 0.6321168406433406,
       "abiertas": [
-        {
-          "mint": "F6UgBxr8pRNCT7DNeA2teumzBebihmSZSCmmLN9bpump",
-          "simbolo": "Fly",
-          "tipo": "nuevo",
-          "fecha_entrada": "2026-10-18T05:00+00:00",
-          "precio_entrada": 0.000111605,
-          "monto": 2.0,
-          "tokens": 17920.344070606156,
-          "max_precio": 0.000111605
-        },
         {
           "mint": "AcV6CcpMGFrA1dhRFiCKNiVNje8QE6ZXR9ep9jh7pump",
           "simbolo": "TSI",
@@ -21,7 +11,7 @@
           "precio_entrada": 0.00027573,
           "monto": 2.0,
           "tokens": 7253.472600007253,
-          "max_precio": 0.00027573
+          "max_precio": 0.0003052
         },
         {
           "mint": "48hnR1CWtafBumJsJod6Q8yduwDuYyumCJzuBVzvpump",
@@ -32,24 +22,34 @@
           "monto": 2.0,
           "tokens": 7750.285791788573,
           "max_precio": 0.000258055
+        },
+        {
+          "mint": "PonziBtgwfemdft5ch9Rj9pKcSPSx5cJbgPiGJNAxz7",
+          "simbolo": "Ponzi",
+          "tipo": "nuevo",
+          "fecha_entrada": "2026-10-18T06:16+00:00",
+          "precio_entrada": 9.199080000000001e-05,
+          "monto": 2.0,
+          "tokens": 21741.30456523913,
+          "max_precio": 9.199080000000001e-05
+        },
+        {
+          "mint": "7UAWdJjrBykopzco6bCBmMLdggaiec6bd4bTKmQqpump",
+          "simbolo": "MASSIVE",
+          "tipo": "nuevo",
+          "fecha_entrada": "2026-10-18T06:16+00:00",
+          "precio_entrada": 0.000169983,
+          "monto": 2.0,
+          "tokens": 11765.882470600001,
+          "max_precio": 0.000169983
         }
       ],
-      "cerradas": 0,
+      "cerradas": 1,
       "ganadas": 0
     },
     "B_escalonado": {
-      "caja": 4.0,
+      "caja": 0.6321168406433406,
       "abiertas": [
-        {
-          "mint": "F6UgBxr8pRNCT7DNeA2teumzBebihmSZSCmmLN9bpump",
-          "simbolo": "Fly",
-          "tipo": "nuevo",
-          "fecha_entrada": "2026-10-18T05:00+00:00",
-          "precio_entrada": 0.000111605,
-          "monto": 2.0,
-          "tokens": 17920.344070606156,
-          "max_precio": 0.000111605
-        },
         {
           "mint": "AcV6CcpMGFrA1dhRFiCKNiVNje8QE6ZXR9ep9jh7pump",
           "simbolo": "TSI",
@@ -58,7 +58,7 @@
           "precio_entrada": 0.00027573,
           "monto": 2.0,
           "tokens": 7253.472600007253,
-          "max_precio": 0.00027573
+          "max_precio": 0.0003052
         },
         {
           "mint": "48hnR1CWtafBumJsJod6Q8yduwDuYyumCJzuBVzvpump",
@@ -69,24 +69,34 @@
           "monto": 2.0,
           "tokens": 7750.285791788573,
           "max_precio": 0.000258055
+        },
+        {
+          "mint": "PonziBtgwfemdft5ch9Rj9pKcSPSx5cJbgPiGJNAxz7",
+          "simbolo": "Ponzi",
+          "tipo": "nuevo",
+          "fecha_entrada": "2026-10-18T06:16+00:00",
+          "precio_entrada": 9.199080000000001e-05,
+          "monto": 2.0,
+          "tokens": 21741.30456523913,
+          "max_precio": 9.199080000000001e-05
+        },
+        {
+          "mint": "7UAWdJjrBykopzco6bCBmMLdggaiec6bd4bTKmQqpump",
+          "simbolo": "MASSIVE",
+          "tipo": "nuevo",
+          "fecha_entrada": "2026-10-18T06:16+00:00",
+          "precio_entrada": 0.000169983,
+          "monto": 2.0,
+          "tokens": 11765.882470600001,
+          "max_precio": 0.000169983
         }
       ],
-      "cerradas": 0,
+      "cerradas": 1,
       "ganadas": 0
     },
     "C_parcial": {
-      "caja": 4.0,
+      "caja": 0.6321168406433406,
       "abiertas": [
-        {
-          "mint": "F6UgBxr8pRNCT7DNeA2teumzBebihmSZSCmmLN9bpump",
-          "simbolo": "Fly",
-          "tipo": "nuevo",
-          "fecha_entrada": "2026-10-18T05:00+00:00",
-          "precio_entrada": 0.000111605,
-          "monto": 2.0,
-          "tokens": 17920.344070606156,
-          "max_precio": 0.000111605
-        },
         {
           "mint": "AcV6CcpMGFrA1dhRFiCKNiVNje8QE6ZXR9ep9jh7pump",
           "simbolo": "TSI",
@@ -95,7 +105,7 @@
           "precio_entrada": 0.00027573,
           "monto": 2.0,
           "tokens": 7253.472600007253,
-          "max_precio": 0.00027573
+          "max_precio": 0.0003052
         },
         {
           "mint": "48hnR1CWtafBumJsJod6Q8yduwDuYyumCJzuBVzvpump",
@@ -106,9 +116,29 @@
           "monto": 2.0,
           "tokens": 7750.285791788573,
           "max_precio": 0.000258055
+        },
+        {
+          "mint": "PonziBtgwfemdft5ch9Rj9pKcSPSx5cJbgPiGJNAxz7",
+          "simbolo": "Ponzi",
+          "tipo": "nuevo",
+          "fecha_entrada": "2026-10-18T06:16+00:00",
+          "precio_entrada": 9.199080000000001e-05,
+          "monto": 2.0,
+          "tokens": 21741.30456523913,
+          "max_precio": 9.199080000000001e-05
+        },
+        {
+          "mint": "7UAWdJjrBykopzco6bCBmMLdggaiec6bd4bTKmQqpump",
+          "simbolo": "MASSIVE",
+          "tipo": "nuevo",
+          "fecha_entrada": "2026-10-18T06:16+00:00",
+          "precio_entrada": 0.000169983,
+          "monto": 2.0,
+          "tokens": 11765.882470600001,
+          "max_precio": 0.000169983
         }
       ],
-      "cerradas": 0,
+      "cerradas": 1,
       "ganadas": 0
     }
   }
