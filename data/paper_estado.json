@@ -11,7 +11,7 @@
           "precio_entrada": 0.00027573,
           "monto": 2.0,
           "tokens": 7253.472600007253,
-          "max_precio": 0.0003717
+          "max_precio": 0.0003721
         },
         {
           "mint": "48hnR1CWtafBumJsJod6Q8yduwDuYyumCJzuBVzvpump",
@@ -48,7 +48,7 @@
       "ganadas": 1
     },
     "B_escalonado": {
-      "caja": 1.1765548138524262,
+      "caja": 0.018354211183463587,
       "abiertas": [
         {
           "mint": "AcV6CcpMGFrA1dhRFiCKNiVNje8QE6ZXR9ep9jh7pump",
@@ -58,7 +58,7 @@
           "precio_entrada": 0.00027573,
           "monto": 2.0,
           "tokens": 7253.472600007253,
-          "max_precio": 0.0003717
+          "max_precio": 0.0003721
         },
         {
           "mint": "48hnR1CWtafBumJsJod6Q8yduwDuYyumCJzuBVzvpump",
@@ -71,21 +71,21 @@
           "max_precio": 0.0002666
         },
         {
-          "mint": "PonziBtgwfemdft5ch9Rj9pKcSPSx5cJbgPiGJNAxz7",
-          "simbolo": "Ponzi",
+          "mint": "2y4b4chPooVJZta323vk746Fh87JooNtxiuEvDjypump",
+          "simbolo": "NIP",
           "tipo": "nuevo",
-          "fecha_entrada": "2026-10-18T06:16+00:00",
-          "precio_entrada": 9.199080000000001e-05,
+          "fecha_entrada": "2026-10-18T07:53+00:00",
+          "precio_entrada": 0.000106151,
           "monto": 2.0,
-          "tokens": 21741.30456523913,
-          "max_precio": 0.0001618
+          "tokens": 18841.084869666796,
+          "max_precio": 0.000106151
         }
       ],
-      "cerradas": 2,
+      "cerradas": 3,
       "ganadas": 0
     },
     "C_parcial": {
-      "caja": 1.1765548138524262,
+      "caja": 0.018354211183463587,
       "abiertas": [
         {
           "mint": "AcV6CcpMGFrA1dhRFiCKNiVNje8QE6ZXR9ep9jh7pump",
@@ -95,7 +95,7 @@
           "precio_entrada": 0.00027573,
           "monto": 2.0,
           "tokens": 7253.472600007253,
-          "max_precio": 0.0003717
+          "max_precio": 0.0003721
         },
         {
           "mint": "48hnR1CWtafBumJsJod6Q8yduwDuYyumCJzuBVzvpump",
@@ -108,17 +108,17 @@
           "max_precio": 0.0002666
         },
         {
-          "mint": "PonziBtgwfemdft5ch9Rj9pKcSPSx5cJbgPiGJNAxz7",
-          "simbolo": "Ponzi",
+          "mint": "2y4b4chPooVJZta323vk746Fh87JooNtxiuEvDjypump",
+          "simbolo": "NIP",
           "tipo": "nuevo",
-          "fecha_entrada": "2026-10-18T06:16+00:00",
-          "precio_entrada": 9.199080000000001e-05,
+          "fecha_entrada": "2026-10-18T07:53+00:00",
+          "precio_entrada": 0.000106151,
           "monto": 2.0,
-          "tokens": 21741.30456523913,
-          "max_precio": 0.0001618
+          "tokens": 18841.084869666796,
+          "max_precio": 0.000106151
         }
       ],
-      "cerradas": 2,
+      "cerradas": 3,
       "ganadas": 0
     }
   }
