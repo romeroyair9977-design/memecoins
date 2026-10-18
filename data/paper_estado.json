@@ -1,0 +1,55 @@
+{
+  "estrategias": {
+    "A_fija": {
+      "caja": 8.0,
+      "abiertas": [
+        {
+          "mint": "F6UgBxr8pRNCT7DNeA2teumzBebihmSZSCmmLN9bpump",
+          "simbolo": "Fly",
+          "tipo": "nuevo",
+          "fecha_entrada": "2026-10-18T05:00+00:00",
+          "precio_entrada": 0.000111605,
+          "monto": 2.0,
+          "tokens": 17920.344070606156,
+          "max_precio": 0.000111605
+        }
+      ],
+      "cerradas": 0,
+      "ganadas": 0
+    },
+    "B_escalonado": {
+      "caja": 8.0,
+      "abiertas": [
+        {
+          "mint": "F6UgBxr8pRNCT7DNeA2teumzBebihmSZSCmmLN9bpump",
+          "simbolo": "Fly",
+          "tipo": "nuevo",
+          "fecha_entrada": "2026-10-18T05:00+00:00",
+          "precio_entrada": 0.000111605,
+          "monto": 2.0,
+          "tokens": 17920.344070606156,
+          "max_precio": 0.000111605
+        }
+      ],
+      "cerradas": 0,
+      "ganadas": 0
+    },
+    "C_parcial": {
+      "caja": 8.0,
+      "abiertas": [
+        {
+          "mint": "F6UgBxr8pRNCT7DNeA2teumzBebihmSZSCmmLN9bpump",
+          "simbolo": "Fly",
+          "tipo": "nuevo",
+          "fecha_entrada": "2026-10-18T05:00+00:00",
+          "precio_entrada": 0.000111605,
+          "monto": 2.0,
+          "tokens": 17920.344070606156,
+          "max_precio": 0.000111605
+        }
+      ],
+      "cerradas": 0,
+      "ganadas": 0
+    }
+  }
+}

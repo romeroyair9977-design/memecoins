@@ -1,0 +1,4 @@
+fecha_utc,estrategia,caja,valor_abiertas,total,abiertas,cerradas,ganadas
+2026-10-18 05:00,A_fija,8.0,2.0,10.0,1,0,0
+2026-10-18 05:00,B_escalonado,8.0,2.0,10.0,1,0,0
+2026-10-18 05:00,C_parcial,8.0,2.0,10.0,1,0,0
