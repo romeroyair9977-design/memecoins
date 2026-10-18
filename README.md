@@ -43,3 +43,15 @@ Archivos en data/:
 
 Limitación: el bot solo mira el precio cada 30 min, así que la simulación es aproximada.
 Un token que desaparece sin datos se cuenta como pérdida total.
+
+
+## Versión 3 (cambios tras la primera prueba)
+- Solo queda la regla A_fija (TP +60%, SL -35%, máx. 4 h). B y C salieron claramente peores en memecoins.
+- Vigilancia: tras cada escaneo, el bot vigila las posiciones abiertas cada 45 s durante hasta 25 min
+  (antes miraba cada 30 min y un stop de -35% cerraba en -63%). Por eso el workflow ahora dura hasta ~30 min
+  y tiene `timeout-minutes: 40`.
+- Filtros nuevos: no entra si el token ya subió más de 150% o cae más de 20% en la última hora, y descarta
+  copias (mismo símbolo con otro contrato que uno ya visto).
+- paper_trades.csv ahora guarda las características de cada entrada (liquidez, volumen, holders, etc.) para
+  analizar con datos qué separa a los tokens que suben de los que se desploman.
+- Para reiniciar la cuenta simulada con $10: borra data/paper_estado.json.
