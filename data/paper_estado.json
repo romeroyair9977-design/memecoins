@@ -1,7 +1,7 @@
 {
   "estrategias": {
     "A_fija": {
-      "caja": 8.0,
+      "caja": 6.0,
       "abiertas": [
         {
           "mint": "F6UgBxr8pRNCT7DNeA2teumzBebihmSZSCmmLN9bpump",
@@ -12,13 +12,23 @@
           "monto": 2.0,
           "tokens": 17920.344070606156,
           "max_precio": 0.000111605
+        },
+        {
+          "mint": "AcV6CcpMGFrA1dhRFiCKNiVNje8QE6ZXR9ep9jh7pump",
+          "simbolo": "TSI",
+          "tipo": "nuevo",
+          "fecha_entrada": "2026-10-18T05:17+00:00",
+          "precio_entrada": 0.00027573,
+          "monto": 2.0,
+          "tokens": 7253.472600007253,
+          "max_precio": 0.00027573
         }
       ],
       "cerradas": 0,
       "ganadas": 0
     },
     "B_escalonado": {
-      "caja": 8.0,
+      "caja": 6.0,
       "abiertas": [
         {
           "mint": "F6UgBxr8pRNCT7DNeA2teumzBebihmSZSCmmLN9bpump",
@@ -29,13 +39,23 @@
           "monto": 2.0,
           "tokens": 17920.344070606156,
           "max_precio": 0.000111605
+        },
+        {
+          "mint": "AcV6CcpMGFrA1dhRFiCKNiVNje8QE6ZXR9ep9jh7pump",
+          "simbolo": "TSI",
+          "tipo": "nuevo",
+          "fecha_entrada": "2026-10-18T05:17+00:00",
+          "precio_entrada": 0.00027573,
+          "monto": 2.0,
+          "tokens": 7253.472600007253,
+          "max_precio": 0.00027573
         }
       ],
       "cerradas": 0,
       "ganadas": 0
     },
     "C_parcial": {
-      "caja": 8.0,
+      "caja": 6.0,
       "abiertas": [
         {
           "mint": "F6UgBxr8pRNCT7DNeA2teumzBebihmSZSCmmLN9bpump",
@@ -46,6 +66,16 @@
           "monto": 2.0,
           "tokens": 17920.344070606156,
           "max_precio": 0.000111605
+        },
+        {
+          "mint": "AcV6CcpMGFrA1dhRFiCKNiVNje8QE6ZXR9ep9jh7pump",
+          "simbolo": "TSI",
+          "tipo": "nuevo",
+          "fecha_entrada": "2026-10-18T05:17+00:00",
+          "precio_entrada": 0.00027573,
+          "monto": 2.0,
+          "tokens": 7253.472600007253,
+          "max_precio": 0.00027573
         }
       ],
       "cerradas": 0,
