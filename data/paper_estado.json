@@ -1,7 +1,7 @@
 {
   "estrategias": {
     "A_fija": {
-      "caja": 0.12489270969463018,
+      "caja": 4.022355432132099,
       "abiertas": [
         {
           "mint": "DtcicPCKTKeAh7TDEzTym3hXeoHAoMiBdYJhMYxZpump",
@@ -12,30 +12,10 @@
           "monto": 2.0,
           "tokens": 1711.4935348331721,
           "max_precio": 0.001252
-        },
-        {
-          "mint": "6yMZv1NgnQWBeocyfCNKmdqGr3Enu3Lrdpz3TJRvpump",
-          "simbolo": "CATONICE",
-          "tipo": "nuevo",
-          "fecha_entrada": "2026-10-18T16:52+00:00",
-          "precio_entrada": 0.00110696,
-          "monto": 2.0,
-          "tokens": 1806.7500180675004,
-          "max_precio": 0.001395
-        },
-        {
-          "mint": "3QMFFJfHBPscB3pCaP8tweu6TUfNEK3G1QEG2zFxpump",
-          "simbolo": "CRASH",
-          "tipo": "nuevo",
-          "fecha_entrada": "2026-10-18T18:54+00:00",
-          "precio_entrada": 8.167870000000001e-05,
-          "monto": 2.0,
-          "tokens": 24486.18795353011,
-          "max_precio": 8.167870000000001e-05
         }
       ],
-      "cerradas": 21,
-      "ganadas": 6
+      "cerradas": 23,
+      "ganadas": 7
     },
     "B_escalonado": {
       "caja": 0.6454189419694203,
