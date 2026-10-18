@@ -1,31 +1,21 @@
 {
   "estrategias": {
     "A_fija": {
-      "caja": 1.2716115709851956,
+      "caja": 7.641793692852895,
       "abiertas": [
         {
-          "mint": "DfBJCoLnaF75GaKPWB4c3TFyMHcXmAShiuWm3dHNpump",
-          "simbolo": "koinu",
-          "tipo": "nuevo",
-          "fecha_entrada": "2026-10-18T13:54+00:00",
-          "precio_entrada": 5.27725e-05,
+          "mint": "HKZDfZnkHZxd9agRDNPyDv4iT6LmAurJnpRtj9wpump",
+          "simbolo": "MISTAKE",
+          "tipo": "despertar",
+          "fecha_entrada": "2026-10-18T14:50+00:00",
+          "precio_entrada": 0.00530351,
           "monto": 2.0,
-          "tokens": 37898.52669477474,
-          "max_precio": 5.27725e-05
-        },
-        {
-          "mint": "GoLdZWYNg9jg4z5SGCLJx69xag2vMjLaSQK5S7TUGoLd",
-          "simbolo": "Gold",
-          "tipo": "nuevo",
-          "fecha_entrada": "2026-10-18T14:14+00:00",
-          "precio_entrada": 7.076060000000001e-05,
-          "monto": 2.0,
-          "tokens": 28264.31658295718,
-          "max_precio": 7.076060000000001e-05
+          "tokens": 377.10874496324135,
+          "max_precio": 0.00530351
         }
       ],
-      "cerradas": 16,
-      "ganadas": 4
+      "cerradas": 18,
+      "ganadas": 6
     },
     "B_escalonado": {
       "caja": 0.3407772047893607,
@@ -48,7 +38,7 @@
           "precio_entrada": 5.27725e-05,
           "monto": 2.0,
           "tokens": 37898.52669477474,
-          "max_precio": 5.27725e-05
+          "max_precio": 8.646e-05
         }
       ],
       "cerradas": 6,
@@ -75,7 +65,7 @@
           "precio_entrada": 5.27725e-05,
           "monto": 2.0,
           "tokens": 37898.52669477474,
-          "max_precio": 5.27725e-05
+          "max_precio": 8.646e-05
         }
       ],
       "cerradas": 6,
