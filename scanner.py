@@ -15,11 +15,13 @@ Qué hace:
      concentración del top 10 de holders.
   5. Guarda los que pasan en data/candidatos.csv y sigue su precio 48 h en data/seguimiento.csv.
   6. Si configuras Telegram, te manda los nombres al celular.
+  7. Paper trading: simula compras/ventas con reglas fijas (TP, SL, tiempo máx.) en data/paper_*.csv.
 
 IMPORTANTE: esto NO predice cuál sube. Descarta lo peligroso y marca señales de momentum.
 """
 
 import csv
+import json
 import os
 import sys
 import time
@@ -56,6 +58,30 @@ HORAS_SEGUIMIENTO = 48
 HORAS_SIN_REPETIR = 24        # no volver a avisar del mismo token antes de X horas
 MAX_REVISAR_POR_CORRIDA = 150 # tope de tokens a consultar por ejecución
 MAX_AVISOS_POR_CORRIDA = 10
+
+# --- PAPER TRADING (simulación, sin plata real) ---
+# Cada estrategia es una cuenta simulada aparte que opera los MISMOS candidatos,
+# para comparar cuál regla de salida rinde mejor.
+PAPER_ACTIVO = True
+PAPER_CAPITAL = 10.0               # capital simulado inicial POR estrategia (USD)
+PAPER_MONTO = 2.0                  # USD por operación
+PAPER_SLIPPAGE_ENTRADA_PCT = 1.0   # deslizamiento simulado al comprar
+PAPER_SLIPPAGE_SALIDA_PCT = 1.0    # deslizamiento simulado al vender
+PAPER_TIPOS = ("nuevo", "despertar")  # qué tipos de candidato se operan
+PAPER_MAX_ABIERTAS = 5
+PAPER_ESTRATEGIAS = {
+    # tp: take profit fijo (None = sin tope)
+    # sl: stop loss inicial (% de caída desde la entrada)
+    # trail_activar: ganancia % a partir de la cual el stop empieza a seguir al precio máximo
+    # trail_dist: distancia % del stop al precio máximo
+    # parcial_en / parcial_frac: al llegar a ese % de ganancia vende esa fracción de la posición
+    "A_fija":       {"tp": 60,   "sl": 35, "trail_activar": None, "trail_dist": None,
+                     "parcial_en": None, "parcial_frac": 0.0, "max_horas": 4},
+    "B_escalonado": {"tp": None, "sl": 35, "trail_activar": 30, "trail_dist": 25,
+                     "parcial_en": None, "parcial_frac": 0.0, "max_horas": 24},
+    "C_parcial":    {"tp": None, "sl": 35, "trail_activar": 30, "trail_dist": 25,
+                     "parcial_en": 100, "parcial_frac": 0.5, "max_horas": 24},
+}
 # ================================================================================
 
 DS = "https://api.dexscreener.com"
@@ -64,6 +90,9 @@ RUG = "https://api.rugcheck.xyz/v1"
 DATA = "data"
 CAND = os.path.join(DATA, "candidatos.csv")
 SEG = os.path.join(DATA, "seguimiento.csv")
+PAPER_STATE = os.path.join(DATA, "paper_estado.json")
+PAPER_TRADES = os.path.join(DATA, "paper_trades.csv")
+PAPER_BALANCE = os.path.join(DATA, "paper_balance.csv")
 
 CAND_COLS = [
     "fecha_utc", "mint", "simbolo", "nombre", "tipo", "precio_usd", "liquidez_usd",
@@ -74,6 +103,12 @@ SEG_COLS = [
     "fecha_utc", "mint", "simbolo", "tipo", "precio_entrada", "precio_actual",
     "cambio_pct", "liquidez_usd",
 ]
+
+PAPER_COLS = [
+    "estrategia", "fecha_entrada", "fecha_salida", "mint", "simbolo", "tipo", "precio_entrada",
+    "precio_salida", "monto_usd", "resultado_usd", "resultado_pct", "motivo_salida", "horas",
+]
+BAL_COLS = ["fecha_utc", "estrategia", "caja", "valor_abiertas", "total", "abiertas", "cerradas", "ganadas"]
 
 HEADERS = {"User-Agent": "memecoin-scanner/2.0", "Accept": "application/json"}
 
@@ -306,6 +341,138 @@ def avisar_telegram(filas):
         time.sleep(0.5)
 
 
+# ----------------------------- PAPER TRADING -----------------------------
+def paper_cargar():
+    est = None
+    if os.path.exists(PAPER_STATE):
+        with open(PAPER_STATE, encoding="utf-8") as f:
+            est = json.load(f)
+    if not est or "estrategias" not in est:  # primera vez o formato viejo
+        est = {"estrategias": {}}
+    for nombre in PAPER_ESTRATEGIAS:
+        est["estrategias"].setdefault(
+            nombre, {"caja": PAPER_CAPITAL, "abiertas": [], "cerradas": 0, "ganadas": 0})
+    return est
+
+
+def paper_guardar(est):
+    os.makedirs(DATA, exist_ok=True)
+    with open(PAPER_STATE, "w", encoding="utf-8") as f:
+        json.dump(est, f, indent=2)
+
+
+def paper_trading(nuevos):
+    """Simula varias reglas de salida en cuentas separadas, sobre los mismos candidatos."""
+    if not PAPER_ACTIVO:
+        return
+    est = paper_cargar()
+    t = ahora()
+    s_out = 1 - PAPER_SLIPPAGE_SALIDA_PCT / 100
+
+    # precios actuales de todas las posiciones abiertas (una sola consulta)
+    mints = sorted({p["mint"] for c in est["estrategias"].values() for p in c["abiertas"]})
+    precios = {}
+    if mints:
+        pares = pares_de(mints)
+        precios = {m: num(p.get("priceUsd")) for m, p in pares.items()}
+
+    filas_cerradas, filas_bal = [], []
+    for nombre, cfg in PAPER_ESTRATEGIAS.items():
+        cta = est["estrategias"][nombre]
+
+        # 1) revisar posiciones abiertas
+        restantes = []
+        for pos in cta["abiertas"]:
+            horas = (t - datetime.fromisoformat(pos["fecha_entrada"])).total_seconds() / 3600
+            precio = precios.get(pos["mint"])
+            motivo, salida = None, None
+            if precio:
+                pos["max_precio"] = max(pos.get("max_precio", pos["precio_entrada"]), precio)
+                cambio = precio / pos["precio_entrada"] - 1
+                max_cambio = pos["max_precio"] / pos["precio_entrada"] - 1
+
+                # toma parcial de ganancias (una sola vez)
+                if cfg["parcial_en"] and not pos.get("parcial") and cambio >= cfg["parcial_en"] / 100:
+                    vender = pos["tokens"] * cfg["parcial_frac"]
+                    valor = vender * precio * s_out
+                    pos["tokens"] -= vender
+                    pos["recuperado"] = pos.get("recuperado", 0.0) + valor
+                    pos["parcial"] = True
+                    cta["caja"] += valor
+                    print(f"  PAPER[{nombre}] parcial {pos['simbolo']}: vende {cfg['parcial_frac']:.0%} a {precio:.8g}")
+
+                if cfg["tp"] and cambio >= cfg["tp"] / 100:
+                    motivo = "take_profit"
+                elif (cfg["trail_activar"] is not None and max_cambio >= cfg["trail_activar"] / 100
+                      and precio <= pos["max_precio"] * (1 - cfg["trail_dist"] / 100)):
+                    motivo = "stop_escalonado"
+                elif cambio <= -cfg["sl"] / 100:
+                    motivo = "stop_loss"
+                elif horas >= cfg["max_horas"]:
+                    motivo = "tiempo"
+                if motivo:
+                    salida = precio * s_out
+            elif horas >= cfg["max_horas"]:
+                motivo, salida = "sin_datos_perdida_total", 0.0  # el token desapareció
+
+            if not motivo:
+                restantes.append(pos)
+                continue
+            valor = pos["tokens"] * salida
+            cta["caja"] += valor
+            resultado = pos.get("recuperado", 0.0) + valor - pos["monto"]
+            cta["cerradas"] += 1
+            cta["ganadas"] += 1 if resultado > 0 else 0
+            filas_cerradas.append({
+                "estrategia": nombre, "fecha_entrada": pos["fecha_entrada"],
+                "fecha_salida": t.isoformat(timespec="minutes"), "mint": pos["mint"],
+                "simbolo": pos["simbolo"], "tipo": pos["tipo"],
+                "precio_entrada": pos["precio_entrada"], "precio_salida": salida,
+                "monto_usd": pos["monto"], "resultado_usd": round(resultado, 4),
+                "resultado_pct": round(resultado / pos["monto"] * 100, 1),
+                "motivo_salida": motivo, "horas": round(horas, 2),
+            })
+            print(f"  PAPER[{nombre}] cierre {pos['simbolo']}: {motivo} {resultado:+.2f} USD")
+        cta["abiertas"] = restantes
+
+        # 2) abrir posiciones nuevas
+        ya = {p["mint"] for p in cta["abiertas"]}
+        for c in nuevos or []:
+            if c["tipo"] not in PAPER_TIPOS or c["mint"] in ya:
+                continue
+            if cta["caja"] < PAPER_MONTO or len(cta["abiertas"]) >= PAPER_MAX_ABIERTAS:
+                break
+            base = num(c["precio_usd"])
+            if not base:
+                continue
+            entrada = base * (1 + PAPER_SLIPPAGE_ENTRADA_PCT / 100)
+            cta["caja"] -= PAPER_MONTO
+            cta["abiertas"].append({
+                "mint": c["mint"], "simbolo": c["simbolo"], "tipo": c["tipo"],
+                "fecha_entrada": t.isoformat(timespec="minutes"),
+                "precio_entrada": entrada, "monto": PAPER_MONTO,
+                "tokens": PAPER_MONTO / entrada, "max_precio": entrada,
+            })
+            ya.add(c["mint"])
+            print(f"  PAPER[{nombre}] compra {c['simbolo']} a {entrada:.8g}")
+
+        # 3) balance de esta estrategia
+        valor_ab = sum(p["tokens"] * (precios.get(p["mint"]) or p["precio_entrada"]) for p in cta["abiertas"])
+        total = cta["caja"] + valor_ab
+        filas_bal.append({
+            "fecha_utc": t.strftime("%Y-%m-%d %H:%M"), "estrategia": nombre,
+            "caja": round(cta["caja"], 4), "valor_abiertas": round(valor_ab, 4),
+            "total": round(total, 4), "abiertas": len(cta["abiertas"]),
+            "cerradas": cta["cerradas"], "ganadas": cta["ganadas"],
+        })
+        print(f"PAPER[{nombre}] total {total:.2f} USD | caja {cta['caja']:.2f} | "
+              f"abiertas {len(cta['abiertas'])} | cerradas {cta['cerradas']} | ganadas {cta['ganadas']}")
+
+    añadir_csv(PAPER_TRADES, PAPER_COLS, filas_cerradas)
+    añadir_csv(PAPER_BALANCE, BAL_COLS, filas_bal)
+    paper_guardar(est)
+
+
 # ----------------------------- FLUJOS -----------------------------
 def vistos_recientes():
     limite = ahora().timestamp() - HORAS_SIN_REPETIR * 3600
@@ -344,6 +511,7 @@ def escanear():
     añadir_csv(CAND, CAND_COLS, pasan)
     avisar_telegram(pasan)
     print(f"Candidatos que pasaron: {len(pasan)}")
+    return pasan
 
 
 def seguimiento():
@@ -405,8 +573,9 @@ def revisar_uno(mint):
 if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else "run"
     if cmd == "run":
-        escanear()
+        nuevos = escanear()
         seguimiento()
+        paper_trading(nuevos)
     elif cmd == "check" and len(sys.argv) > 2:
         revisar_uno(sys.argv[2])
     else:

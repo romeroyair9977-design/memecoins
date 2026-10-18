@@ -27,3 +27,19 @@ Descarta tokens peligrosos y marca señales de momentum. NO predice cuál sube.
 
 ## Ajustes
 Todos los filtros están al inicio de scanner.py (sección CONFIGURACIÓN).
+
+## Paper trading (simulación)
+Tres cuentas simuladas (cada una con $10, $2 por operación) operan los MISMOS candidatos
+"nuevo" o "despertar", cada una con una regla de salida distinta, para comparar cuál rinde mejor:
+- A_fija:       vende a +60% o a -35%, máximo 4 h.
+- B_escalonado: el stop empieza a seguir al precio máximo desde +30% (a 25% de distancia); sin tope fijo, máx. 24 h.
+- C_parcial:    como B, pero vende la mitad al llegar a +100%.
+Todos los parámetros están al inicio de scanner.py (sección PAPER TRADING).
+
+Archivos en data/:
+- paper_trades.csv   cada operación cerrada, con la columna "estrategia"
+- paper_balance.csv  balance de cada estrategia en cada corrida (compara la columna "total")
+- paper_estado.json  estado interno. Bórralo para reiniciar la simulación.
+
+Limitación: el bot solo mira el precio cada 30 min, así que la simulación es aproximada.
+Un token que desaparece sin datos se cuenta como pérdida total.
