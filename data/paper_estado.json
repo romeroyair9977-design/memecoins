@@ -11,7 +11,7 @@
           "precio_entrada": 0.000267751,
           "monto": 2.0,
           "tokens": 7469.626630712864,
-          "max_precio": 0.0003037
+          "max_precio": 0.0003157
         },
         {
           "mint": "7kASdbzxWLdioHhzYvXwtM3tRztAbFmeLKF4bDW8pump",
@@ -21,7 +21,7 @@
           "precio_entrada": 0.00013837,
           "monto": 2.0,
           "tokens": 14454.000144540003,
-          "max_precio": 0.00013837
+          "max_precio": 0.0001778
         },
         {
           "mint": "CM5B4eqTQCFD95VJDkjmF62cNDC9nZbNgA6kcw74pump",
@@ -38,18 +38,8 @@
       "ganadas": 3
     },
     "B_escalonado": {
-      "caja": 0.6777262378247575,
+      "caja": 3.1673573987430474,
       "abiertas": [
-        {
-          "mint": "AcV6CcpMGFrA1dhRFiCKNiVNje8QE6ZXR9ep9jh7pump",
-          "simbolo": "TSI",
-          "tipo": "nuevo",
-          "fecha_entrada": "2026-10-18T05:17+00:00",
-          "precio_entrada": 0.00027573,
-          "monto": 2.0,
-          "tokens": 7253.472600007253,
-          "max_precio": 0.00055
-        },
         {
           "mint": "48hnR1CWtafBumJsJod6Q8yduwDuYyumCJzuBVzvpump",
           "simbolo": "Dip",
@@ -61,22 +51,12 @@
           "max_precio": 0.0002666
         }
       ],
-      "cerradas": 4,
-      "ganadas": 0
+      "cerradas": 5,
+      "ganadas": 1
     },
     "C_parcial": {
-      "caja": 0.6777262378247575,
+      "caja": 3.1673573987430474,
       "abiertas": [
-        {
-          "mint": "AcV6CcpMGFrA1dhRFiCKNiVNje8QE6ZXR9ep9jh7pump",
-          "simbolo": "TSI",
-          "tipo": "nuevo",
-          "fecha_entrada": "2026-10-18T05:17+00:00",
-          "precio_entrada": 0.00027573,
-          "monto": 2.0,
-          "tokens": 7253.472600007253,
-          "max_precio": 0.00055
-        },
         {
           "mint": "48hnR1CWtafBumJsJod6Q8yduwDuYyumCJzuBVzvpump",
           "simbolo": "Dip",
@@ -88,8 +68,8 @@
           "max_precio": 0.0002666
         }
       ],
-      "cerradas": 4,
-      "ganadas": 0
+      "cerradas": 5,
+      "ganadas": 1
     }
   }
 }
