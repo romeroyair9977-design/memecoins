@@ -1,7 +1,7 @@
 {
   "estrategias": {
     "A_fija": {
-      "caja": 8.341364200025684,
+      "caja": 4.341364200025684,
       "abiertas": [
         {
           "mint": "BdXfLfcbDE8YvpbvvmmGTduqcDesaQVUm5xLxgUc2S5t",
@@ -12,6 +12,26 @@
           "monto": 2.0,
           "tokens": 7469.626630712864,
           "max_precio": 0.0003037
+        },
+        {
+          "mint": "7kASdbzxWLdioHhzYvXwtM3tRztAbFmeLKF4bDW8pump",
+          "simbolo": "Tortue",
+          "tipo": "nuevo",
+          "fecha_entrada": "2026-10-18T11:48+00:00",
+          "precio_entrada": 0.00013837,
+          "monto": 2.0,
+          "tokens": 14454.000144540003,
+          "max_precio": 0.00013837
+        },
+        {
+          "mint": "CM5B4eqTQCFD95VJDkjmF62cNDC9nZbNgA6kcw74pump",
+          "simbolo": "Sagace",
+          "tipo": "nuevo",
+          "fecha_entrada": "2026-10-18T11:48+00:00",
+          "precio_entrada": 3.9794000000000006e-05,
+          "monto": 2.0,
+          "tokens": 50258.832989897965,
+          "max_precio": 3.9794000000000006e-05
         }
       ],
       "cerradas": 10,
