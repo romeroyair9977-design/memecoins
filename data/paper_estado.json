@@ -1,30 +1,10 @@
 {
   "estrategias": {
     "A_fija": {
-      "caja": 3.3020090797299595,
-      "abiertas": [
-        {
-          "mint": "6AZCEfnhaPDHghHhH4nArD3jXgdHnG54FXJPE3nApump",
-          "simbolo": "sir",
-          "tipo": "nuevo",
-          "fecha_entrada": "2026-10-18T22:12+00:00",
-          "precio_entrada": 8.92234e-05,
-          "monto": 2.0,
-          "tokens": 22415.644326488342,
-          "max_precio": 0.0001004,
-          "feat": {
-            "liquidez_usd": 24695,
-            "vol_h1": 44266,
-            "aceleracion_vol": "",
-            "cambio_h1_pct": 92.46,
-            "edad_h": 0.8,
-            "holders": 303,
-            "top10_pct": 31.5
-          }
-        }
-      ],
-      "cerradas": 29,
-      "ganadas": 9
+      "caja": 5.574417438972041,
+      "abiertas": [],
+      "cerradas": 30,
+      "ganadas": 10
     },
     "B_escalonado": {
       "caja": 0.6454189419694203,
