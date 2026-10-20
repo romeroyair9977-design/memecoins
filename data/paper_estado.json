@@ -1,8 +1,28 @@
 {
   "estrategias": {
     "A_fija": {
-      "caja": 2.037529627818499,
-      "abiertas": [],
+      "caja": 0.03752962781849911,
+      "abiertas": [
+        {
+          "mint": "FPAZqRu2nsqRiEjQKtKPnyX23nD8axugnsMZ5AHypump",
+          "simbolo": "ROR",
+          "tipo": "nuevo",
+          "fecha_entrada": "2026-10-20T01:58+00:00",
+          "precio_entrada": 0.00171801,
+          "monto": 2.0,
+          "tokens": 1164.137577778942,
+          "max_precio": 0.00171801,
+          "feat": {
+            "liquidez_usd": 110279,
+            "vol_h1": 104,
+            "aceleracion_vol": 0.1,
+            "cambio_h1_pct": 1.94,
+            "edad_h": 37.2,
+            "holders": 230,
+            "top10_pct": 23.3
+          }
+        }
+      ],
       "cerradas": 36,
       "ganadas": 11
     },
